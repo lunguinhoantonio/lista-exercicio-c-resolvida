@@ -386,7 +386,8 @@ int main()
     b e c, e calcular as raízes da equação
     (se existirem).
     
-    int a, b, c, x1, x2, resultB, result4ac, resultDelta, result2a, coordX, coordY;
+    int a, b, c, resultB;
+    float x1, x2, coordX, coordY, resultDelta, result2a, result4ac;
     printf("Digite o valor de a: ");
     scanf("%i", &a);
     printf("Digite o valor de b: ");
@@ -398,16 +399,14 @@ int main()
     result4ac = 4 * a * c;
     resultDelta = resultB - result4ac;
     result2a = 2 * a;
-    coordX = b * -1 / result2a;
-    coordY = (resultDelta * -1) / (4 * a);
     
     if (resultDelta < 0) {
-        printf("\n--------------------------------------------\n");
+        printf("\n-----------------------------------\n");
         printf("A equação não possui números reais!");
         exit(0);
     }
     else if (resultDelta == 0) {
-        printf("\n--------------------------------------------\n");
+        printf("\n---------------------------------------\n");
         printf("A equação possui só um resultado real!");
         
         x1 = (b * -1 + sqrt(resultDelta)) / result2a;
@@ -422,10 +421,29 @@ int main()
     
         x2 = (b * -1 - sqrt(resultDelta)) / result2a;
         
-    
-        printf("\nResultado x': %i\n", x1);
-        printf("Resultado x'': %i\n", x2);
-        printf("Coordenadas do vértice: (%i, %i)", coordX, coordY);
+        coordX = b * -1 / result2a;
+        coordY = (resultDelta * -1) / (4 * a);
+        
+        printf("\nResultado de Delta: %.2f\n", resultDelta);
+        printf("Resultado x': %.2f\n", x1);
+        printf("Resultado x'': %.2f\n", x2);
+        
+        if (coordX > 0 && coordY > 0) {
+            printf("O vértice se encontra no 1° quadrante!\n");
+        }
+        else if (coordX < 0 && coordY > 0) {
+            printf("O vértice se encontra no 2° quadrante!\n");
+        }
+        else if (coordX < 0 && coordY < 0) {
+            printf("O vértice se encontra no 3° quadrante!\n");
+        }
+        else if (coordX > 0 && coordY < 0) {
+            printf("O vértice se encontra no 4° quadrante!\n");
+        }
+        else {
+            printf("O vértice se encontra nos mesmos pontos!\n");
+        }
+        printf("Coordenadas do vertice: (%.2f, %.2f)", coordX, coordY);
         
     }*/
     
