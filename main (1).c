@@ -386,24 +386,28 @@ int main()
     b e c, e calcular as raízes da equação
     (se existirem).
     
-    int a, b, c, x1, x2, resultB, result4ac, resultDelta, result2a;
-    printf("Digite o valor de a: \n");
+    int a, b, c, x1, x2, resultB, result4ac, resultDelta, result2a, coordX, coordY;
+    printf("Digite o valor de a: ");
     scanf("%i", &a);
-    printf("Digite o valor de b: \n");
+    printf("Digite o valor de b: ");
     scanf("%i", &b);
-    printf("Digite o valor de c: \n");
+    printf("Digite o valor de c: ");
     scanf("%i", &c);
     
     resultB = pow(b, 2);
     result4ac = 4 * a * c;
     resultDelta = resultB - result4ac;
     result2a = 2 * a;
+    coordX = b * -1 / result2a;
+    coordY = (resultDelta * -1) / (4 * a);
     
     if (resultDelta < 0) {
+        printf("\n--------------------------------------------\n");
         printf("A equação não possui números reais!");
         exit(0);
     }
     else if (resultDelta == 0) {
+        printf("\n--------------------------------------------\n");
         printf("A equação possui só um resultado real!");
         
         x1 = (b * -1 + sqrt(resultDelta)) / result2a;
@@ -411,14 +415,17 @@ int main()
         x2 = (b * -1 - sqrt(resultDelta)) / result2a;
     }
     else {
+        printf("\n--------------------------------------------\n");
         printf("A equação possui dois resultados distintos!");
         
         x1 = (b * -1 + sqrt(resultDelta)) / result2a;
     
         x2 = (b * -1 - sqrt(resultDelta)) / result2a;
+        
     
         printf("\nResultado x': %i\n", x1);
         printf("Resultado x'': %i\n", x2);
+        printf("Coordenadas do vértice: (%i, %i)", coordX, coordY);
         
     }*/
     
