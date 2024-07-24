@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 int main()
 {
@@ -385,7 +386,7 @@ int main()
     b e c, e calcular as raízes da equação
     (se existirem).
     
-    int a, b, c, x1, x2, resultB, result4ac, resultDelta,result2a;
+    int a, b, c, x1, x2, resultB, result4ac, resultDelta, result2a;
     printf("Digite o valor de a: \n");
     scanf("%i", &a);
     printf("Digite o valor de b: \n");
@@ -393,17 +394,33 @@ int main()
     printf("Digite o valor de c: \n");
     scanf("%i", &c);
     
-    resultB = b * b;
+    resultB = pow(b, 2);
     result4ac = 4 * a * c;
     resultDelta = resultB - result4ac;
     result2a = 2 * a;
     
-    x1 = (b * -1 + sqrt(resultDelta)) / result2a;
+    if (resultDelta < 0) {
+        printf("A equação não possui números reais!");
+        exit(0);
+    }
+    else if (resultDelta == 0) {
+        printf("A equação possui só um resultado real!");
+        
+        x1 = (b * -1 + sqrt(resultDelta)) / result2a;
+        
+        x2 = (b * -1 - sqrt(resultDelta)) / result2a;
+    }
+    else {
+        printf("A equação possui dois resultados distintos!");
+        
+        x1 = (b * -1 + sqrt(resultDelta)) / result2a;
     
-    x2 = (b * -1 - sqrt(resultDelta)) / result2a;
+        x2 = (b * -1 - sqrt(resultDelta)) / result2a;
     
-    printf("%i\n", x1);
-    printf("%i\n", x2);*/
+        printf("\nResultado x': %i\n", x1);
+        printf("Resultado x'': %i\n", x2);
+        
+    }*/
     
     
     return 0;
